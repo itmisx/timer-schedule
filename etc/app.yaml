@@ -1,0 +1,35 @@
+# 日志
+log:
+  debug: true
+  output: "console"
+# redis配置
+redis:
+  host: "127.0.0.1"
+  port: "6379"
+  password: ""
+  protocol: "tcp"
+
+# 队列前缀
+redis_prefix: "timer-schedule:"
+
+# 队列最大长度
+max_timer_task: 20
+
+# 定时器配置表
+# name:名称,group:系统分组,spec:时间设置,
+# retry:失败重试，retry_times:失败重试的次数，retry_delay:失败重试延迟
+timers:
+  # 分组1的定时计划
+  - name: "test1"
+    group: "service1"
+    spec: "*/10 * * * * *"
+    enable_retry: false
+    max_retry_times: 0
+    retry_delay: 0
+  # 分组2的定时计划
+  - name: "test2"
+    group: "service2"
+    spec: "0/10 * * * * *"
+    enable_retry: true
+    max_retry_times: 10
+    retry_delay: 3
