@@ -5,6 +5,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/itmisx/logger"
 	"github.com/itmisx/redisx"
 	"github.com/tidwall/gjson"
 )
@@ -54,15 +55,26 @@ func (c *timerConsumer) Start() {
 				}
 				if m, ok := c.handlerMap.Load(timerName); ok {
 					if handler, ok := m.(func() error); ok {
-						err := handler()
-						if err == nil && timerEnableRetry {
-							c.rdb.Set(
-								context.Background(),
-								c.redisPrefix+"task-result:"+gjson.Get(timerItem, "id").String(),
-								time.Now().Unix(),
-								time.Second*time.Duration(timerRetryDelay+60),
-							)
-						}
+						go func(timerItem string) {
+							defer func() {
+								if err := recover(); err != nil {
+									logger.Error(
+										context.Background(),
+										"timer handler error",
+										logger.String("timer-name", gjson.Get(timerItem, "name").String()),
+									)
+								}
+							}()
+							err := handler()
+							if err == nil && timerEnableRetry {
+								c.rdb.Set(
+									context.Background(),
+									c.redisPrefix+"task-result:"+gjson.Get(timerItem, "id").String(),
+									time.Now().Unix(),
+									time.Second*time.Duration(timerRetryDelay+60),
+								)
+							}
+						}(timerItem)
 					}
 				}
 			}
