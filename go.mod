@@ -1,4 +1,4 @@
-module timer-schedule
+module github.com/itmisx/timer-schedule
 
 go 1.19
 

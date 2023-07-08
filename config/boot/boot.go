@@ -3,9 +3,9 @@ package boot
 import (
 	"log"
 
-	"timer-schedule/config"
-	"timer-schedule/config/redis"
-	"timer-schedule/internal/define"
+	"github.com/itmisx/timer-schedule/config"
+	"github.com/itmisx/timer-schedule/config/redis"
+	"github.com/itmisx/timer-schedule/internal/define"
 
 	"github.com/itmisx/logger"
 	"github.com/spf13/viper"

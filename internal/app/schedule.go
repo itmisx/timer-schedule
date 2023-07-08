@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"time"
 
-	"timer-schedule/config"
-	"timer-schedule/config/redis"
-	"timer-schedule/config/timer"
-	"timer-schedule/internal/define"
+	"github.com/itmisx/timer-schedule/config"
+	"github.com/itmisx/timer-schedule/config/redis"
+	"github.com/itmisx/timer-schedule/config/timer"
+	"github.com/itmisx/timer-schedule/internal/define"
 
 	_redis "github.com/go-redis/redis/v8"
 	"github.com/itmisx/go-helper"

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"timer-schedule/config/timer"
+	"github.com/itmisx/timer-schedule/config/timer"
 
 	"github.com/itmisx/logger"
 	"github.com/itmisx/redisx"

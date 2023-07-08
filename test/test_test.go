@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"timer-schedule/config/boot"
-	"timer-schedule/config/redis"
-	"timer-schedule/internal/app"
-	"timer-schedule/pkg"
+	"github.com/itmisx/timer-schedule/config/boot"
+	"github.com/itmisx/timer-schedule/config/redis"
+	"github.com/itmisx/timer-schedule/internal/app"
+	"github.com/itmisx/timer-schedule/pkg"
 
 	"github.com/robfig/cron/v3"
 )

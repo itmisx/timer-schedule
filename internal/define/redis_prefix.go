@@ -1,7 +1,7 @@
 package define
 
 import (
-	"timer-schedule/config"
+	"github.com/itmisx/timer-schedule/config"
 )
 
 var (

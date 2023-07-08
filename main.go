@@ -1,8 +1,8 @@
 package main
 
 import (
-	"timer-schedule/config/boot"
-	"timer-schedule/internal/app"
+	"github.com/itmisx/timer-schedule/config/boot"
+	"github.com/itmisx/timer-schedule/internal/app"
 )
 
 func main() {
