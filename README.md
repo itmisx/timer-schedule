@@ -35,7 +35,7 @@
 #### 🚀️ 客户端
 
 - 安装
-  `go get -u -v https://github.com/itmisx/timer-schedule`
+  `go get -u -v github.com/itmisx/timer-schedule`
 - 使用
   ```go
   // 创建定时任务消费客户端
